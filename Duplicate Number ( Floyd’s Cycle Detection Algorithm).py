@@ -13,3 +13,26 @@ def findDuplicate(nums):
     ptr2 =nums[ptr2]
   return ptr1
 print(findDuplicate([1,2,3,4,2]))
+
+
+
+C:
+  
+  
+  int findDuplicate(int* nums, int numsSize){
+
+    int slow = 0, fast=0,finder =0;
+    while(true){
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+        if (slow == fast)
+            break;
+        
+    }
+while(true){
+    slow = nums[slow];
+     finder =  nums[finder];
+    if(slow == finder)
+        return slow;
+
+}
