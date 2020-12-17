@@ -1,10 +1,10 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         map_index = {}
-        word = s.split(' ')
-        if len(pattern) >  len(s):
+        word = s.split()
+        if len(pattern) !=  len(word):
             return False
-        for i in range(0,len(pattern)):
+        for i in range(len(word)):
             c = pattern[i]
             d = word[i]
             char_key = "char_{}".format(c)
