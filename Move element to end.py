@@ -12,5 +12,16 @@ print(moveelementtoend([1,2,3,4,2,2,2,2],2))
 
 
 
+#Doesnt change the order of the elements:
+def moveelementtoend(nums,element):
+  lastnonzeroat=-1    
+
+  for i in range(0,len(nums)):
+    if nums[i] !=element:
+      lastnonzeroat+=1
+      nums[lastnonzeroat],nums[i]=nums[i], nums[lastnonzeroat] 
+  return nums
+print(moveelementtoend([1,2,3,4,2,2,2,2],2))
+
 O(n) -> Time
 O(1) -> Space
