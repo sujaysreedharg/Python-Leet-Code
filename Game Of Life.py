@@ -35,3 +35,8 @@ class Solution:
                 if self.originalarray[r][c] == self.alive:
                     counter+=1
         return counter
+    
+    
+    
+    Time -> O(m*n)
+    Space -> O(m*n)
