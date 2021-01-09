@@ -25,7 +25,12 @@ print(sol.longestOnes([0,0,1,1,1,0,0], 0))
 
 
 
-THE POWER OF FOR LOOP
+THE POWER OF FOR LOOP:
+    
+In 'for' loop iteration statement is written at top, hence, executes only after all statements in loop are executed.	In 'while' loop, the iteration statement can be written anywhere in the loop.    
+   
+
+
 In essence, we are incrementing the size of the window until our number of flips (K) is used up. When it is, we shift the left boundary of the window to alleviate the usage of flips.
 
 we start expanding the "right boundary" of the window from 0 to the right for each iteration of the for loop
