@@ -39,3 +39,6 @@ class Solution:
             i-=1
             j+=1
         return True
+    
+    
+ For N-Queens II : Just initialize self.ans=0 and change the base case to  self.ans+=1
