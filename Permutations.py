@@ -1,4 +1,40 @@
 class Solution:
+    def __init__(self):
+        self.res=[]
+    
+    def permute(self, nums):
+        self.dfsbacktrack(nums,[])
+        return self.res
+    def dfsbacktrack(self,nums,path):
+        if not nums:
+            self.res.append(path)
+        for x in range(len(nums)):
+            print('nums',nums)
+            self.dfsbacktrack(nums[:x]+nums[x+1:],path+[nums[x]])
+
+            
+sol=Solution()
+print(sol.permute([1,2,3]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         permutations=[]
         self.permutationshelp(0,nums,permutations)
