@@ -1,19 +1,32 @@
-def sumquadruplets(array, t):
-  array.sort()
-  result =[]
-  for i in range(0, len(array)):
-    for j in range(i+1, len(array)):
-      startptr = j+1
-      endptr=len(array)-1
-      target = t-array[i] - array[j]
-      while(startptr<endptr):
-        total = array[startptr]+array[endptr]
-        if(total==target):
-          result.extend((array[i],array[j],array[startptr],array[endptr]))
-          return result
-        elif (total > target):
-          endptr-=1
-        else:
-          startptr+=1
-      
-print(sumquadruplets([2,7,4,0,9,5,1,3],20))
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        def kSum(nums: List[int], target: int, k: int) -> List[List[int]]:
+            if len(nums) == 0 or nums[0] * k > target or target > nums[-1] * k:
+                return []
+            if k == 2:
+                return twoSum(nums, target)
+            res = []
+            for i in range(len(nums)):
+                if i == 0 or nums[i - 1] != nums[i]:
+                    for set in (kSum(nums[i + 1:], target - nums[i], k - 1)):
+                        res.append([nums[i]] + set)
+            return res
+
+        def twoSum(nums: List[int], target: int) -> List[List[int]]:
+            res = []
+            s = set()
+            for i in range(len(nums)):
+                if len(res) == 0 or res[-1][1]!= nums[i]:
+                    if target - nums[i] in s:
+                        print(res)
+                        res.append([target - nums[i], nums[i]])
+                        
+                        print(res)
+                        print(res[-1][1],nums[i])
+                    else:
+                        s.add(nums[i])
+                        
+            return res
+
+        nums.sort()
+        return kSum(nums, target, 4)
