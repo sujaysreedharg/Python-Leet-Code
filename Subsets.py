@@ -1,22 +1,17 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        output = [[]]
-        for i in nums:
-            output+= [lst + [i] for lst in output]
-        return output
-        
-        
-        
-  Complexity Analysis
-
-Time complexity: \mathcal{O}(N \times 2^N)O(N×2 
-N
- ) to generate all subsets and then copy them into output list.
-
-Space complexity: \mathcal{O}(N \times 2^N)O(N×2 
-N
- ). This is exactly the number of solutions for subsets multiplied by the number NN of elements to keep for each subset.
- 
+        ans=[]
+        self.backtrack(nums,0,[],ans)
+        return ans
+    def backtrack(self,nums,startidx,cur_list,ans):
+        ans.append(cur_list[:])
+        n=len(nums)
+        for i in range(startidx,n):
+            cur_list.append(nums[i])
+            
+            self.backtrack(nums,i+1,cur_list,ans)
+            cur_list.pop()
+                
  
  
  Given an integer array nums, return all possible subsets (the power set).
