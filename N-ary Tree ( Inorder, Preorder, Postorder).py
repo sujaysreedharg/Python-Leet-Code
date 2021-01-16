@@ -7,7 +7,7 @@ class Node:
 """
 
 class Solution:
-    def preorder(self, root: 'Node') -> List[int]:
+    def preorder(self, root: 'Node') -> List[int]:                                           
         res=[]
         if not root:
             return res
@@ -21,7 +21,18 @@ class Solution:
         dfs(root)
         return res
         
-        
+  Iterative:
+    class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        stack=[root]
+        res=[]
+        while stack:
+            node=stack.pop()
+            if node:
+                res.append(node.val)
+                for child in node.children[::-1]:
+                    stack.append(child)
+        return res
         
  """
 # Definition for a Node.
@@ -47,8 +58,19 @@ class Solution:
         dfs(root)
         return res
         
+    Iterative:
         
-        
+   class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        stack=[root]
+        res=[]
+        while stack:
+            node=stack.pop()
+            if node:
+                res.append(node.val)
+                for child in node.children:
+                    stack.append(child)
+        return res[::-1]     
         
       INORDER:
       class Solution:
