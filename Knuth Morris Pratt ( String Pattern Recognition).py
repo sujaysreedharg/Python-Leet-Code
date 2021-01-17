@@ -35,7 +35,12 @@ class Solution:
                 i+=1
         return -1
             
-     
+Why this algorithm is amazing?
+The normal sliding window approach has a Time Complexity of O(n*m) where n= len of haystack & m = len of needle. The KMP algorithm has a Time Complexity of O(n+m) and a Space of O(m).
+
+Why?
+
+KMP avoids recomputation of strings which have a repitition (Pattern).
 
 
 
