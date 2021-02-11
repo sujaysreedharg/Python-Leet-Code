@@ -17,3 +17,6 @@ class Solution:
             if (pile % mid ) !=0:
                 totalhours+=1
         return totalhours<=H
+    
+Time -> O(n* log(m)) n-> No. of piles and m is the range from low to high
+Space -> O(1)
