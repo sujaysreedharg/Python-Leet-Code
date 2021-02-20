@@ -1,3 +1,7 @@
+Time -> O(n)
+Space -> O(n)
+
+
 V = 4
 dsuf  = [-1 for _ in range(V)]
 def cycle(edgelist):
