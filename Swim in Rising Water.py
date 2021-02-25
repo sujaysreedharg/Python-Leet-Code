@@ -25,3 +25,30 @@ class Solution:
             else:
                 low= mid+1
         return low
+
+    
+    
+    Dijkstra Solution:
+    
+    class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        
+        visited=[[False for j in range(len(grid[0]))] for i in range(len(grid))]
+        pq = [(grid[0][0],0,0)]
+        rowlen= len(grid)
+        collen = len(grid[0])
+        ans = grid[0][0]
+        while pq:
+            dis,row,col = heapq.heappop(pq)
+
+            ans = max(ans,dis)
+            if row == rowlen-1 and col == collen-1:
+                break
+            for friends in [(0,-1),(-1,0),(0,1),(1,0)]:
+                r = row + friends[0]
+                c = col + friends[1]
+                if  not (r<0 or c<0 or r>rowlen-1 or c>collen-1) and visited[r][c]==False:
+                    visited[r][c]=True
+                    heapq.heappush(pq,(grid[r][c],r,c))
+        return ans
+                        
